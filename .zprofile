@@ -15,7 +15,10 @@ export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+# Programs that needs a little extra help understanding cleanup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo # For rusts cargo
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # For gtk
+export _Z_DATA="$XDG_DATA_HOME"/z # For z
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	exec startx

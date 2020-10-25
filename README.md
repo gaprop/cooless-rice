@@ -2,7 +2,7 @@
 HAHAHHAHA
 
 # Whislist
-- [] Remove dumb imports in xmonad
+- [V] Remove dumb imports in xmonad
 - [] Add dmenu config to .config
 - [] Add a homebaked wallpaper
 - [] Tree structure for xmonad
