@@ -2,7 +2,8 @@
 
 # Retarded way of updating dotfiles.
 
-configDir=~/.config
+configDir=$XDG_CONFIG_HOME
+scriptsDir=~/.local/bin
 
 echo 'Copying i3 config...'
 cp -r ${configDir}/i3/* ./.config/i3/
@@ -52,3 +53,6 @@ cp -r ${configDir}/zathura/* ./.config/zathura/
 
 echo 'Copying newsboat'
 cp -r ${configDir}/newsboat/* ./.config/newsboat
+
+echo 'Copying scripts from .local'
+cp -r ${scriptsDir}/* ./.local/bin

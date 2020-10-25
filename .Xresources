@@ -1,10 +1,10 @@
 mode: night
 bg: #090611
-fg: #724372 # [V]
+fg: #724372
 border: #724372 
-accent: #ffffff # [V]
+accent: #ffffff
 sec: #724372
-alert: #c9af82 # [V]
+alert: #c9af82
 font: Fira Code
 
 Xft.dpi:       96
@@ -26,31 +26,31 @@ Xft.lcdfilter: lcddefault
 *color0: #2d1d34
 *color8: #2d1d34
 
-#: red
+!#: red
 *color1: #311D31
 *color9: #311D31
 
-#: green
+!#: green
 *color2: #ffffff
 *color10: #ffffff
 
-#: yello: 
+!#: yello: 
 *color3: #947DC2
 *color11: #947DC2
 
-#: blue
+!#: blue
 *color4: #c9af82
 *color12: #c9af82
 
-#: magen: a
+!#: magenta
 *color5: #574dae
 *color13: #574dae
 
-#: cyan
+!#: cyan
 *color6: #8098b1
 *color14: #8098b1
 
-#: white: 
+!#: white: 
 *color7: #e37933
 *color15: #e37933
 

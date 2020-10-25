@@ -1,0 +1,11 @@
+#!/bin/sh
+
+choices="Shutdown\nReboot\nHibernate"
+
+chosen=$(echo -e "$choices" | dmenu -i)
+
+case "$chosen" in
+  "Shutdown") shutdown now ;;
+  "Reboot") reboot ;;
+  "Hibernate") systemctl hibernate ;;
+esac

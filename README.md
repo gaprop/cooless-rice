@@ -8,4 +8,4 @@ HAHAHHAHA
 - [] Change colors on conky
 - [] Show wheather on conky
 - [] Change to st terminal
-- [] Added proper way to handle dotfiles
+- [] Add proper way to handle dotfiles (proly just add symlink, could do a whatev those repos are called, but dont really care.)

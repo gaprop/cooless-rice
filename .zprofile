@@ -8,6 +8,9 @@ export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/brave
 export READER="zathura"
 
+"Add .local/bin to path"
+export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+
 # /~ Clean up
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
