@@ -8,3 +8,4 @@ HAHAHHAHA
 - [] Change colors on conky
 - [] Show wheather on conky
 - [] Change to st terminal
+- [] Added proper way to handle dotfiles
