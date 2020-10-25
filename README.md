@@ -2,10 +2,11 @@
 HAHAHHAHA
 
 # Whislist
+- [] Remove dumb imports in xmonad
 - [] Add dmenu config to .config
 - [] Add a homebaked wallpaper
 - [] Tree structure for xmonad
-- [] Fullscreen for xmonad
+- [V] Fullscreen for xmonad
 - [] Fix ram and temperature on conky
 - [] Change colors on conky
 - [] Show wheather on conky
