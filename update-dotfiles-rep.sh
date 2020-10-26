@@ -54,5 +54,8 @@ cp -r ${configDir}/zathura/* ./.config/zathura/
 echo 'Copying newsboat'
 cp -r ${configDir}/newsboat/* ./.config/newsboat
 
+echo 'Copying dmenu'
+cp -r ${configDir}/dmenu/* ./.config/dmenu
+
 echo 'Copying scripts from .local'
 cp -r ${scriptsDir}/* ./.local/bin

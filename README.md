@@ -3,11 +3,11 @@ HAHAHHAHA
 
 # Whislist
 - [V] Remove dumb imports in xmonad
-- [] Add dmenu config to .config
+- [V] Add dmenu config to .config
 - [] Add a homebaked wallpaper
 - [] Tree structure for xmonad
 - [V] Fullscreen for xmonad
-- [] Fix ram and temperature on conky
+- [] Fix ram and temperature on conky (was an issue in 2019, no clue why it still persists)
 - [] Change colors on conky
 - [] Show wheather on conky
 - [] Change to st terminal

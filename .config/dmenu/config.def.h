@@ -1,0 +1,1 @@
+/home/anders/.local/share/dmenu/config.def.h
