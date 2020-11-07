@@ -131,7 +131,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q'; } #Use beam shape cursoer for each new prompt
-#alias zat="zathura"
 
 # opam configuration
 test -r /home/anders/.opam/opam-init/init.zsh && . /home/anders/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
