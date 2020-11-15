@@ -15,8 +15,8 @@ color2  #ffffff # This is the terminal command color
 color10 #ffffff # [V]
 
 #: yellow
-color3  #947DC2 # The red color you see in git branches
-color11 #947DC2 # [V]
+color3  #C79DB2 # The red color you see in git branches
+color11 #C79DB2 # [V]
 
 #: blue
 color4  #c9af82 # This is the path color
@@ -27,8 +27,8 @@ color5  #574dae # Have no idea what color this is, it is blue. Just gonna leave 
 color13 #574dae # [V]
 
 #: cyan
-color6  #C79DB2 # (The ugly pink one) This color has always just been bad
-color14 #C79DB2 # [V]
+color6  #947DC2 # (The ugly pink one) This color has always just been bad
+color14 #947DC2 # [V]
 
 #: white
 color7  #e37933 # I have honestly never seen this color

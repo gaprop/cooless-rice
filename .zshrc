@@ -108,6 +108,8 @@ zat() {
     #nohup zathura "$1" </dev/null >/dev/null 2>&1 &
 }
 
+alias mix=ncpamixer
+
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -132,5 +134,5 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q'; } #Use beam shape cursoer for each new prompt
 
-# opam configuration
-test -r /home/anders/.opam/opam-init/init.zsh && . /home/anders/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# In case of weird locale error
+export LC_ALL=en_US.UTF-8

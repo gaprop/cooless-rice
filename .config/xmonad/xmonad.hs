@@ -109,7 +109,6 @@ myKeys =
   , ("M-<Tab>", sendMessage NextLayout)
   , ("M-f", toggleGaps)
   , ("M-S-f", sendMessage $ Toggle NBFULL)
-    -- TODO:
     -- Window navigation
   , ("M-j", windows W.focusDown)
   , ("M-k", windows W.focusUp)
