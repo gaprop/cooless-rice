@@ -307,7 +307,7 @@ enable-scroll = true
 icon-0 = 1;
 icon-1 = 2;
 icon-2 = 3;
-;icon-default = 
+icon-default = 
 
 ; Available tags:
 ;   <label-monitor>
@@ -348,8 +348,8 @@ label-active-margin = 1
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-occupied = %index%
-label-occupied-underline = #555555
+label-occupied = %icon% %index%
+; label-occupied-underline = ${colors.alert}
 
 ; Available tokens:
 ;   %name%
@@ -366,7 +366,7 @@ label-urgent-underline = #9b0a20
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-empty = %icon%
+label-empty =
 label-empty-foreground = ${colors.foreground}
 label-empty-background = ${colors.background}
 label-empty-padding = 1

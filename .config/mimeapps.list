@@ -1,0 +1,17 @@
+[Default Applications]
+x-scheme-handler/http=brave.desktop
+x-scheme-handler/https=brave.desktop
+x-scheme-handler/ftp=brave.desktop
+x-scheme-handler/chrome=brave.desktop
+text/html=brave.desktop
+x-scheme-handler/mailto=brave.desktop
+application/pdf=org.pwmt.zathura.desktop
+
+[Added Associations]
+x-scheme-handler/http=brave.desktop;
+x-scheme-handler/https=brave.desktop;
+x-scheme-handler/ftp=brave.desktop;
+x-scheme-handler/chrome=brave.desktop;
+text/html=brave.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+

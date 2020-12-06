@@ -27,12 +27,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 "For autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 
-"Autocomplete for python
-Plug 'zchee/deoplete-jedi'
-
-"Code go-to for python (Needs some extsra config)
-"Plug 'davidhalter/jedi-vim'
-
 "Status bar
 Plug 'vim-airline/vim-airline'
 
@@ -54,14 +48,8 @@ Plug 'rbgrouleff/bclose.vim'
 "Highlight for yank
 Plug 'machakann/vim-highlightedyank'
 
-"Code folding
-Plug 'tmhedberg/SimpylFold'
-
 "Color-theme
-"Plug 'trusktr/seti.vim'
-"Plug 'szorfein/fromthehell.vim'
 Plug 'artanikin/vim-synthwave84'
-"Plug 'bcicen/vim-vice'
 
 "Syntax highlight for js
 Plug 'pangloss/vim-javascript'
@@ -71,16 +59,10 @@ Plug 'neovimhaskell/haskell-vim'
 
 "Syntax highlight for f#
 Plug 'kongo2002/fsharp-vim'
-"Plug 'fsharp/vim-fsharp', {
-      "\ 'for': 'fsharp',
-      "\ 'do':  'make fsautocomplete',
-      "\}
 
 "Syntax highlight for latex and a auto compiler
 Plug 'lervag/vimtex'
 
-"ಠ_ಠ
-"Plug 'dodie/vim-disapprove-deep-indentation'
 call plug#end()
 "-----------------------------------------
 
@@ -93,7 +75,7 @@ let g:airline_theme='minimalist' "jellybean is a worthy theme aswell
 syntax on
 filetype plugin indent on
 colorscheme synthwave84
-"autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+
 "Literally syntax highlighting only for .rafi
 au BufNewFile, BufRead /* .rasi setf css
 
@@ -116,6 +98,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 "Change autocomplete list navigation key to tab
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+"Remove focus to center line, when creating a {
+let g:AutoPairsCenterLine = 0
 "-----------------------------------------
 
 
@@ -134,17 +118,6 @@ set number
 set relativenumber
 "-----------------------------------------
 
-"------------Syntastic--------------------
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"-----------------------------------------
-
 "------------Indentation option------------
 "Allows to change tab to whitespace
 set expandtab
@@ -152,10 +125,10 @@ set expandtab
 "Makes tabulation with number of spaces
 set shiftwidth=2
 
-"Set tab to be 4 spaces long, only really used for ಠ_ಠ
-"set tabstop=4
+" Add one space after comment
+let g:NERDSpaceDelims = 1
 
-"-----------------------------------------
+""-----------------------------------------
 
 
 "------------Nerdtree stuff---------------
@@ -175,6 +148,17 @@ map <leader>o :setlocal spell! spellang=en_us
 let g:tex_flavor='latex'
 
 let g:vimtex_quickfix_open_on_warning = 0
+
+let g:Tex_IgnoredWarnings = 
+    \'Underfull'."\n".
+    \'Overfull'."\n".
+    \'specifier changed to'."\n".
+    \'You have requested'."\n".
+    \'Missing number, treated as zero.'."\n".
+    \'There were undefined references'."\n".
+    \'Citation %.%# undefined'."\n".
+    \'Double space found.'."\n"
+let g:Tex_IgnoreLevel = 8
 "-----------------------------------------
 
 "------------auto command options---------

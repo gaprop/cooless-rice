@@ -8,8 +8,9 @@ export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/brave
 export READER="zathura"
 
-"Add .local/bin to path"
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+# "Add .local/bin to path"
+# export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):/home/anders/.local/share/cargo/bin" # Isn't this just autism way of saying I want .local/bin in my path
+export PATH="$PATH:$HOME/.local/bin:/home/anders/.local/share/cargo/bin"
 
 # /~ Clean up
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -22,7 +23,7 @@ export _Z_DATA="$XDG_DATA_HOME"/z # For z
 
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx
+      exec startx
 fi
 
 

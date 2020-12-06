@@ -5,7 +5,7 @@ choices="Shutdown\nReboot\nHibernate"
 chosen=$(echo -e "$choices" | dmenu -i)
 
 case "$chosen" in
-  "Shutdown") shutdown now ;;
+  "Shutdown") poweroff ;;
   "Reboot") reboot ;;
   "Hibernate") systemctl hibernate ;;
 esac

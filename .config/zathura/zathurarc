@@ -11,8 +11,7 @@ set default-fg "#58697B"
 set default-bg "#090611"
 
 set recolor-lightcolor "#090611"
-# set recolor-darkcolor "#b49052"
-set recolor-darkcolor "#58697b"
+set recolor-darkcolor "#9e9e9e"
 
 map D toggle_page_mode
 map K zoom in

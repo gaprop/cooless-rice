@@ -86,6 +86,8 @@ myStartupHook = do
   spawnOnce "unclutter &"
   --spawnOnce "nm-applet &"
   spawnOnce "pa-applet &"
+  spawnOnce "setxkbmap dk" -- This will be removed once we fix it in x11
+  spawnOnce "xmodmap ~/.Xmodmap"
 
 -- Manage hooks (or rules for certain windows)
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
@@ -105,6 +107,7 @@ myKeys =
     -- Programs
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
+  -- , ("M-menu", spawn "screenshot")
     -- Layouts
   , ("M-<Tab>", sendMessage NextLayout)
   , ("M-f", toggleGaps)
@@ -113,7 +116,7 @@ myKeys =
   , ("M-j", windows W.focusDown)
   , ("M-k", windows W.focusUp)
   , ("M-m", windows W.swapMaster)
-  , ("M-S-m", windows W.focusMaster)
+  , ("M-<Space>", windows W.focusMaster)
   ]
     where 
       toggleGaps :: X ()

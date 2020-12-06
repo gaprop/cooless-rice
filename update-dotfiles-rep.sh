@@ -59,3 +59,6 @@ cp -r ${configDir}/dmenu/* ./.config/dmenu
 
 echo 'Copying scripts from .local'
 cp -r ${scriptsDir}/* ./.local/bin
+
+echo 'Copying mimeapps list'
+cp ${configDir}/mimeapps.list ./.config/
