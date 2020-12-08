@@ -1,4 +1,4 @@
-  -- Base
+
 import XMonad
 import System.IO
 import qualified XMonad.StackSet as W
@@ -84,7 +84,6 @@ myStartupHook = do
   spawnOnce "picom &"
   spawnOnce "conky &"
   spawnOnce "unclutter &"
-  --spawnOnce "nm-applet &"
   spawnOnce "pa-applet &"
   spawnOnce "setxkbmap dk" -- This will be removed once we fix it in x11
   spawnOnce "xmodmap ~/.Xmodmap"
