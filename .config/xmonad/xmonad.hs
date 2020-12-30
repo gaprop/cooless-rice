@@ -85,8 +85,6 @@ myStartupHook = do
   spawnOnce "conky &"
   spawnOnce "unclutter &"
   spawnOnce "pa-applet &"
-  spawnOnce "setxkbmap dk" -- This will be removed once we fix it in x11
-  spawnOnce "xmodmap ~/.Xmodmap"
 
 -- Manage hooks (or rules for certain windows)
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
@@ -106,7 +104,7 @@ myKeys =
     -- Programs
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
-  -- , ("M-menu", spawn "screenshot")
+  , ("M-<Print>", spawn "screenshot")
     -- Layouts
   , ("M-<Tab>", sendMessage NextLayout)
   , ("M-f", toggleGaps)
