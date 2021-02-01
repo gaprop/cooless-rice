@@ -69,7 +69,7 @@ call plug#end()
 
 "------------Themes stuff...--------------
 "Theme for airline 
-let g:airline_theme='minimalist' "jellybean is a worthy theme aswell
+let g:airline_theme='minimalist' 
 
 "Color-theme
 syntax on
@@ -86,6 +86,10 @@ au BufNewFile, BufRead /* .rasi setf css
 let g:vimtex_compiler_progname = 'nvr'
 
 let g:haskell_classic_highlighting = 1
+
+" Toggle search highlighting 
+set hlsearch!
+nnoremap <leader>n :set hlsearch!<CR>
 "-----------------------------------------
 
 "------------Autocomplete options---------

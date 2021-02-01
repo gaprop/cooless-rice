@@ -63,7 +63,7 @@ myBrowser :: String
 myBrowser = "brave"
 
 myEditor :: String
-myEditor = myTerminal ++ "-e nvim"
+myEditor = myTerminal ++ " nvim"
 
 myNormColor :: String
 myNormColor = "#090611"
@@ -101,10 +101,6 @@ myKeys =
     ("M-<Return>", spawn myTerminal) -- Mod + Return
     -- Kill currently selected window
   , ("M-S-q", kill1) -- Mod + Shift + q
-    -- Programs
-  , ("M-d", spawn "dmenu_run")
-  , ("M-0", spawn "turnoff")
-  , ("M-<Print>", spawn "screenshot")
     -- Layouts
   , ("M-<Tab>", sendMessage NextLayout)
   , ("M-f", toggleGaps)
@@ -114,6 +110,14 @@ myKeys =
   , ("M-k", windows W.focusUp)
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
+    -- Programs
+  , ("M-d", spawn "dmenu_run")
+  , ("M-0", spawn "turnoff")
+  , ("M-<Print>", spawn "screenshot")
+  , ("M-b", spawn "brave")
+  , ("M-S-x", spawn (myEditor ++ " ~/.config/xmonad/xmonad.hs"))
+  , ("M-S-p", spawn (myEditor ++ " ~/.config/polybar/config"))
+  , ("M-S-n", spawn (myEditor ++ " ~/.config/nvim/init.vim"))
   ]
     where 
       toggleGaps :: X ()
