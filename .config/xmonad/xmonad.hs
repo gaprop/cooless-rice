@@ -115,9 +115,10 @@ myKeys =
   , ("M-0", spawn "turnoff")
   , ("M-<Print>", spawn "screenshot")
   , ("M-b", spawn "brave")
-  , ("M-S-x", spawn (myEditor ++ " ~/.config/xmonad/xmonad.hs"))
-  , ("M-S-p", spawn (myEditor ++ " ~/.config/polybar/config"))
-  , ("M-S-n", spawn (myEditor ++ " ~/.config/nvim/init.vim"))
+  , ("M-S-c", spawn $ myTerminal ++ " calcurse")
+  , ("M-S-x", spawn $ myEditor ++ " ~/.config/xmonad/xmonad.hs")
+  , ("M-S-p", spawn $ myEditor ++ " ~/.config/polybar/config")
+  , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
   ]
     where 
       toggleGaps :: X ()

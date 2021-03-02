@@ -110,7 +110,10 @@ zat() {
 
 alias mix=ncpamixer
 
+alias ca=calcurse
+
 alias n=nvim
+
 
 bindkey -v
 export KEYTIMEOUT=1

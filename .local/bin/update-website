@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -vrP --delete-after ~/Documents/website/food/ root@kildemand.com:/var/www/food
