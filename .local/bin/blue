@@ -1,0 +1,17 @@
+#!/bin/sh
+# Needs to figure out how to remove the mac address from the dmenu entry
+case "$1" in
+  on)
+    bluetoothctl power on ;;
+  off)
+    bluetoothctl disconnect
+    bluetoothctl power off ;;
+  connect)
+    devices=$(bluetoothctl devices)
+    choice=$(echo "$devices" | awk '{$1=""; print $0}' | dmenu -p "Connect to device: ")
+    mac=$(echo $choice | awk '{print $1}')
+    bluetoothctl connect $mac
+    ;;
+  disconnect) bluetoothctl disconnect ;;
+esac
+
