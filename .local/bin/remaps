@@ -3,4 +3,4 @@
 
 xset r rate 300 50
 setxkbmap dk
-xmodmap ~/.Xmodmap
+xmodmap $XDG_CONFIG_HOME/xmodmap/Xmodmap

@@ -2,7 +2,7 @@
 
 choices="Shutdown\nReboot\nHibernate"
 
-chosen=$(echo -e "$choices" | dmenu -i)
+chosen=$(echo "$choices" | dmenu -i)
 
 case "$chosen" in
   "Shutdown") poweroff ;;

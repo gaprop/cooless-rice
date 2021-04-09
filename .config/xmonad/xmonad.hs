@@ -119,6 +119,7 @@ myKeys =
   , ("M-S-x", spawn $ myEditor ++ " ~/.config/xmonad/xmonad.hs")
   , ("M-S-p", spawn $ myEditor ++ " ~/.config/polybar/config")
   , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
+  , ("M-S-s", spawn $ myTerminal ++ " ncmpcpp")
   ]
     where 
       toggleGaps :: X ()

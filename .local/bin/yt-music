@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Den skal altså lige tagge hvilket track det også er. Men altså ellers er det alt der er brug for
+if echo "$1" | grep -q playlist; then
+  youtube-dl --add-metadata -x -f m4a -o '~/Music/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $1
+elif echo "$1" | grep -q list; then
+  echo "Does not work on list without in the playlist menu, if that even makes sense."
+else
+  echo "Make youtube-dl downloade single song here."
+fi
+# youtube-dl --add-metadata --embed-thumbnail -x -f m4a -o '~/Music/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $1
