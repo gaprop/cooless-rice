@@ -40,7 +40,7 @@ echo 'Copying .zshrc'
 cp -r ~/.zshrc ./
 
 echo 'Copying .Xmodmap (key remaps)..'
-cp -r ~/.Xmodmap ./
+cp -r ~/.config/xmodmap/Xmodmap ./.config/xmodmap
 
 echo 'Copying xresources..'
 cp -r ~/.Xresources ./

@@ -139,5 +139,5 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q'; } #Use beam shape cursoer for each new prompt
 
-# In case of weird locale error
+# In case of weird locale error, I probably did something wrong when editing the locale
 export LC_ALL=en_US.UTF-8

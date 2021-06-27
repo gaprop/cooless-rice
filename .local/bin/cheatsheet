@@ -1,0 +1,2 @@
+#!/bin/sh
+less "$XDG_DATA_HOME"/cheatsheet.md

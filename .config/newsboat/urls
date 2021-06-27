@@ -1,10 +1,33 @@
-https://suckless.org/atom.xml
-https://www.meta-nomad.net/feed/
-https://static.fsf.org/fsforg/rss/news.xml
-https://static.fsf.org/fsforg/rss/blogs.xml
+"-- Blogs --"
+https://community.onelonecoder.com/feed/
 https://lukesmith.xyz/rss.xml
 https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3
 https://based.cooking/rss.xml
+https://static.fsf.org/fsforg/rss/news.xml
+https://static.fsf.org/fsforg/rss/blogs.xml
+https://www.meta-nomad.net/feed/
+" "
+
+"-- Tech --"
 https://www.archlinux.org/feeds/news/
 https://this-week-in-rust.org/rss.xml
-https://community.onelonecoder.com/feed/
+https://suckless.org/atom.xml
+
+" "
+"-- Videos --"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1CSCMwaDubQ4rcYCpX40Eg
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (Youtube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkc9BpKNNMuNFZjVG7mwLoQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCD6VugMZKRhSyzWEWA9W2fg
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-yuWVUplUJZvieEligKBkA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKTehwyGCKF-b2wo0RKwrcg
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3TUCGI-7rSjvHsE4ONXRww
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQDDe78EgG1szRJCRU_gkrA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfbnTUxUech4P1XgYUwYuKA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCt7fwAhXDy3oNFTAzF2o8Pw
+https://www.youtube.com/feeds/videos.xml?channel_id=UCnxQ8o9RpqxGF2oLHcCn9VQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg
+

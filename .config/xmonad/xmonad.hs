@@ -1,23 +1,23 @@
-
 import XMonad
 import System.IO
 import qualified XMonad.StackSet as W
 
-  -- Actions
+-- Actions
 import XMonad.Actions.CopyWindow (kill1)
 
-  -- Data
+-- Data
 import Data.Monoid
 
-  -- Hooks
+-- Hooks
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
+import XMonad.Hooks.Place
 
-  -- Layouts
+-- Layouts
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Gaps
 
-  -- Layouts modifiers
+-- Layouts modifiers
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.LimitWindows (limitWindows)
 import XMonad.Layout.MultiToggle (mkToggle, EOT(EOT), (??), Toggle(..))
@@ -26,12 +26,13 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed (renamed, Rename(Replace))
 import XMonad.Layout.Spacing
 
-  -- Prompt
+-- Prompt
 
-  -- Utilities
+-- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
 
+-- main
 main :: IO ()
 main = xmonad $ ewmh def
   { startupHook        = myStartupHook
@@ -80,17 +81,20 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "$XDG_CONFIG_HOME/polybar/launch.sh &"
   spawnOnce "nitrogen --restore &"
-  spawnOnce "start-pulseaudio-x11 &"
+  -- spawnOnce "start-pulseaudio-x11 &"
   spawnOnce "picom &"
-  spawnOnce "conky &"
+  -- spawnOnce "conky &"
   spawnOnce "unclutter &"
   spawnOnce "pa-applet &"
 
 -- Manage hooks (or rules for certain windows)
+myPlacement = smart (0.5,0.7)
+
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll 
  [
     className =? "Nm-connection-editor" --> doFloat
+ ,  resource  =? "jn"                   --> placeHook myPlacement <+> doFloat
  ]
 
 -- Hotkeys
@@ -111,6 +115,9 @@ myKeys =
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
     -- Programs
+  -- , ("M-<XF86AudioRaiseVolume>", spawn "sound-notify up 5")
+  -- , ("M-<XF86AudioLowerVolume>", spawn "sound-notify down 5")
+  -- , ("M-<XF86AudioMute>", spawn "sound toggle")
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
   , ("M-<Print>", spawn "screenshot")
@@ -120,6 +127,7 @@ myKeys =
   , ("M-S-p", spawn $ myEditor ++ " ~/.config/polybar/config")
   , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
   , ("M-S-s", spawn $ myTerminal ++ " ncmpcpp")
+  , ("M-S-d", spawn $ myTerminal ++ " --name jn" ++ " jn")
   ]
     where 
       toggleGaps :: X ()
@@ -132,16 +140,16 @@ myKeys =
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border 0 i i i) True (Border 0 i i i) True
 
-tall        = renamed [Replace "tall"]
-              $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
-              $ limitWindows 12
-              $ mySpacing 8
-              $ ResizableTall 1 (3/100) (1/2) []
 wide        = renamed [Replace "wide"]
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
               $ limitWindows 12
               $ mySpacing 8
               $ Mirror 
+              $ ResizableTall 1 (3/100) (1/2) []
+tall        = renamed [Replace "tall"]
+              $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
+              $ limitWindows 12
+              $ mySpacing 8
               $ ResizableTall 1 (3/100) (1/2) []
 tabs        = renamed [Replace "tabs"]
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]

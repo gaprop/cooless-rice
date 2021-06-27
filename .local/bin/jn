@@ -1,0 +1,8 @@
+#!/bin/sh
+
+date=$(date +%d" "%B" "%Y)
+time=$(date +%H:%M)
+
+nextfile=$(date +%d-%B-%Y)
+
+nvim "$HOME/Documents/mit/.a/.$nextfile.md"

@@ -9,8 +9,8 @@ case "$1" in
   connect)
     devices=$(bluetoothctl devices)
     choice=$(echo "$devices" | awk '{$1=""; print $0}' | dmenu -p "Connect to device: ")
-    mac=$(echo $choice | awk '{print $1}')
-    bluetoothctl connect $mac
+    mac=$(echo "$choice" | awk '{print $1}')
+    bluetoothctl connect "$mac"
     ;;
   disconnect) bluetoothctl disconnect ;;
 esac

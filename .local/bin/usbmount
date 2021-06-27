@@ -2,7 +2,7 @@
 
 devices=$(lsblk -lp | grep "part $" | awk '{print $1, "(" $4 ")"}')
 choosen=$(echo "$devices" | dmenu -i -p "Pick a device" | awk '{print $1}')
-[[ "$choosen" = "" ]] && exit 1
+[ "$choosen" = "" ] && exit 1
 
-sudo mount $choosen /mnt
+sudo mount "$choosen" /mnt
 notify-send "$choosen mounted to /mnt"

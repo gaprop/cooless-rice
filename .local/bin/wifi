@@ -3,19 +3,19 @@
 case "$1" in
   connect) 
     connections=$(nmcli dev wifi | grep -E "^ |\* " | awk '{print $2, $8}')
-    [[ "$connections" = "" ]] && exit 1
+    [ "$connections" = "" ] && exit 1
     ssid=$(echo "$connections" | dmenu -i -l 10 -p "Connect to wifi" | awk '{print $1}')
     password=$(echo "" | dmenu -i -p "Enter password")
     if [ "$password" = "" ]; then
-      nmcli dev wifi connect $ssid
+      nmcli dev wifi connect "$ssid"
     else
-      nmcli dev wifi connect $ssid password $password
+      nmcli dev wifi connect "$ssid" password "$password"
     fi
     ;;
   hotspot)
     name=$(echo "a" | dmenu -p "Enter a name for the hotspot")
     password=$(echo "yayyayyay" | dmenu -p "Enter a password")
-    nmcli dev wifi hotspot ssid $name password $password
+    nmcli dev wifi hotspot ssid "$name" password "$password"
     ;;
   list)
     nmcli dev wifi

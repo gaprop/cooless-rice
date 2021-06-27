@@ -24,6 +24,6 @@ export _Z_DATA="$XDG_DATA_HOME"/z # For z
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
       exec startx
 fi
-
+ 
 # Increase monitor gamme
 #xgamma -quiet -gamma 1.3

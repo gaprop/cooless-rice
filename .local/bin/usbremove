@@ -4,6 +4,6 @@ device=$(lsblk -lp | grep " /mnt"  | awk '{print $1}')
 if [ "$device" = "" ];
 then notify-send "No device mounted to /mnt"
 else 
-  sudo umount $device
+  sudo umount "$device"
   notify-send "$device unmounted"
 fi

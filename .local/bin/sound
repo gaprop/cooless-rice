@@ -2,9 +2,15 @@
 
 NUM="${2:-5}"
 
+usage() {
+  echo "usage: sound [action] [level]"
+}
+
 case "$1" in
   toggle) amixer sset Master toggle ;;
   mute) amixer sset Master mute ;;
   up) amixer sset Master "$NUM"%+ ;;
   down) amixer sset Master "$NUM"%- ;;
-esac > /dev/null
+  volume) amixer sget Master ;;
+  *) usage ;;
+esac

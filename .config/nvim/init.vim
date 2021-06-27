@@ -21,7 +21,7 @@ nnoremap g0 0
 "-----------------------------------------
 
 
-"-----------Plugins yuh-------------------
+"-----------Plugins-----------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
 "For autocompletion
@@ -36,7 +36,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Automatic qoute and bracket completion
 Plug 'jiangmiao/auto-pairs'
 
-"Comment uh"
+"Comment"
 Plug 'scrooloose/nerdcommenter'
 
 "File managing and exploration
@@ -50,6 +50,8 @@ Plug 'machakann/vim-highlightedyank'
 
 "Color-theme
 Plug 'artanikin/vim-synthwave84'
+
+" Plug 'tiagovla/tokyodark.nvim'
 
 "Syntax highlight for js
 Plug 'pangloss/vim-javascript'
@@ -75,7 +77,7 @@ let g:airline_theme='minimalist'
 syntax on
 filetype plugin indent on
 colorscheme synthwave84
-
+ 
 "Literally syntax highlighting only for .rafi
 au BufNewFile, BufRead /* .rasi setf css
 
@@ -146,6 +148,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "------------Latex specific stuff---------
 " \ll for autocompile
+
+" Set spell check for english
 map <leader>o :setlocal spell! spellang=en_us
 
 "Make vimtex commands specific to latex
