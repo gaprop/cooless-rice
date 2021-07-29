@@ -1,8 +1,8 @@
-Config { font = "xft:Iosevka:pixelsize=14;2:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:TerminessTTF Nerd Font:style=Regular:pixelsize=14;2" ]
+Config { font = "xft:Iosevka:styke=Regular:pixelsize=15;2:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:TerminessTTF Nerd Font:style=Regular:pixelsize=15;2" ]
        , bgColor = "#090611"
        , fgColor = "#ffffff"
-       , position = TopSize C 100 25
+       , position = TopSize C 100 30
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True

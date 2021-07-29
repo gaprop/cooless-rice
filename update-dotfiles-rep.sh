@@ -48,6 +48,9 @@ cp -r ~/.Xresources ./
 echo 'Copying xmonad..'
 cp -r ${configDir}/xmonad/* ./.config/xmonad/
 
+echo 'Copying xmobar..'
+cp -r ${configDir}/xmobar/* ./.config/xmobar/
+
 echo 'Copying zathura'
 cp -r ${configDir}/zathura/* ./.config/zathura/
 
