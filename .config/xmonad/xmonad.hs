@@ -89,20 +89,14 @@ myWorkspaces = ["1<fn=1>\62601 </fn>", "2<fn=1>\63097 </fn>", "3<fn=1>\61441 </f
   where format = (++ "<fn=1>\61713 </fn>") . show
 
 -- Startup hooks
-
 myStartupHook :: X ()
 myStartupHook = do
-  -- spawnOnce "$XDG_CONFIG_HOME/polybar/launch.sh &"
   spawnOnce "nitrogen --restore &"
-  -- spawnOnce "start-pulseaudio-x11 &"
   spawnOnce "picom &"
-  -- spawnOnce "conky &"
   spawnOnce "unclutter &"
   spawnOnce "pa-applet &"
 
 -- Manage hooks (or rules for certain windows)
-myPlacement = smart (0.5,0.7)
-
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll 
  [
@@ -110,6 +104,8 @@ myManageHook = composeAll
  ,  resource  =? "jn"                   --> placeHook myPlacement <+> doFloat
  ]
 
+myPlacement = smart (0.5, 0.7)
+ 
 -- Hotkeys
 myKeys :: [(String, X ())]
 myKeys =
@@ -128,9 +124,9 @@ myKeys =
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
     -- Programs
-  , ("<XF86AudioRaiseVolume>", spawn "sound up 5")
-  , ("<XF86AudioLowerVolume>", spawn "sound down 5")
-  , ("<XF86AudioMute>", spawn "sound toggle")
+  -- , ("<XF86AudioRaiseVolume>", spawn "sound up 5")
+  -- , ("<XF86AudioLowerVolume>", spawn "sound down 5")
+  -- , ("<XF86AudioMute>", spawn "sound toggle")
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
   , ("M-<Print>", spawn "screenshot")
