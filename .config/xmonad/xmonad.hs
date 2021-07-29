@@ -129,9 +129,9 @@ myKeys =
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
     -- Programs
-  , ("M-<XF86AudioRaiseVolume>", spawn "sound up 5")
-  , ("M-<XF86AudioLowerVolume>", spawn "sound down 5")
-  , ("M-<XF86AudioMute>", spawn "sound toggle")
+  , ("<XF86AudioRaiseVolume>", spawn "sound up 5")
+  , ("<XF86AudioLowerVolume>", spawn "sound down 5")
+  , ("<XF86AudioMute>", spawn "sound toggle")
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
   , ("M-<Print>", spawn "screenshot")
