@@ -114,6 +114,8 @@ alias ca=calcurse
 
 alias n=nvim
 
+alias nb=newsboat
+
 
 bindkey -v
 export KEYTIMEOUT=1

@@ -4,7 +4,6 @@ import qualified XMonad.StackSet as W
 
 -- Actions
 import XMonad.Actions.CopyWindow (kill1)
-
 -- Data
 import Data.Monoid
 
@@ -52,7 +51,7 @@ myFont :: String
 myFont = "xft:URWGothic-Book"
 
 myTerminal :: String
-myTerminal = "kitty"
+myTerminal = "st"
 
 myModMask :: KeyMask
 myModMask = mod4Mask --Sets mod key to the super/windows key
@@ -127,7 +126,7 @@ myKeys =
   , ("M-S-p", spawn $ myEditor ++ " ~/.config/polybar/config")
   , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
   , ("M-S-s", spawn $ myTerminal ++ " ncmpcpp")
-  , ("M-S-d", spawn $ myTerminal ++ " --name jn" ++ " jn")
+  , ("M-S-d", spawn $ myTerminal ++ " -n jn" ++ " jn")
   ]
     where 
       toggleGaps :: X ()

@@ -9,8 +9,8 @@ export BROWSER=/usr/bin/brave
 export READER="zathura"
 
 # "Add .local/bin to path"
-# export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):/home/anders/.local/share/cargo/bin" # Isn't this just autism way of saying I want .local/bin in my path
-export PATH="$PATH:$HOME/.local/bin:/home/anders/.local/share/cargo/bin"
+# export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':'):/home/anders/.local/share/cargo/bin" # Isn't this just an autistic way of saying I want .local/bin in my path
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
 
 # /~ Clean up
 export XDG_CONFIG_HOME="$HOME/.config"

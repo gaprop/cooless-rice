@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$1" in
+  cs) stty -F /dev/ttyACM0 cs8 9600 ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts ;;
+  *) arduino-cli compile -b arduino:avr:uno -p /dev/ttyACM0 -u "$1" ;;
+esac
+
+# arduino-cli upload -p /dev/ttyACM0 -b arduino:avr:uno $1

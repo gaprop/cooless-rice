@@ -5,6 +5,7 @@ case "$1" in
     connections=$(nmcli dev wifi | grep -E "^ |\* " | awk '{print $2, $8}')
     [ "$connections" = "" ] && exit 1
     ssid=$(echo "$connections" | dmenu -i -l 10 -p "Connect to wifi" | awk '{print $1}')
+    [ "$ssid" = "" ] && exit 1
     password=$(echo "" | dmenu -i -p "Enter password")
     if [ "$password" = "" ]; then
       nmcli dev wifi connect "$ssid"
