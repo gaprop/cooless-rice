@@ -1,5 +1,5 @@
 import XMonad
-import System.IO
+import System.IO (hPutStrLn)
 import qualified XMonad.StackSet as W
 
 -- Actions
@@ -10,6 +10,7 @@ import Data.Monoid
 -- Hooks
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.Place
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 
 -- Layouts
 import XMonad.Layout.ResizableTile
@@ -30,20 +31,32 @@ import XMonad.Layout.Spacing
 -- Utilities
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
+import XMonad.Util.Run (spawnPipe)
 
 -- main
 main :: IO ()
-main = xmonad $ ewmh def
-  { startupHook        = myStartupHook
-  , layoutHook         = myLayoutHook
-  , manageHook         = myManageHook
-  , terminal           = myTerminal
-  , modMask            = myModMask
-  , borderWidth        = myBorderWidth
-  , normalBorderColor  = myNormColor
-  , focusedBorderColor = myFocusColor
-  --, workspaces         = myWorkspaces
-  } `additionalKeysP` myKeys
+main = do
+  xmproc <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
+  xmonad $ ewmh def
+    { startupHook        = myStartupHook
+    , layoutHook         = myLayoutHook
+    , manageHook         = myManageHook
+    , terminal           = myTerminal
+    , modMask            = myModMask
+    , borderWidth        = myBorderWidth
+    , normalBorderColor  = myNormColor
+    , focusedBorderColor = myFocusColor
+    , workspaces         = myWorkspaces
+    , logHook            = dynamicLogWithPP $ xmobarPP 
+      {
+        -- The xmobar to output
+        ppOutput        = \x -> hPutStrLn xmproc x
+        -- The active workspace. A space is added between the icon and the number
+      , ppCurrent       = xmobarColor "#c9af82" "" . (\(x, y) -> x ++ " " ++ y) . splitAt 1
+        -- The order of the bar. Only the workspaces are shown
+      , ppOrder         = \(ws:l:t:ex) -> [ws]
+      }
+    } `additionalKeysP` myKeys
 
 -- Variables
 
@@ -72,13 +85,14 @@ myFocusColor :: String
 myFocusColor = "#ffffff"
 
 myWorkspaces :: [String]
-myWorkspaces = map show [1..9]
+myWorkspaces = ["1<fn=1>\62601 </fn>", "2<fn=1>\63097 </fn>", "3<fn=1>\61441 </fn>"] ++ map format [4..9]
+  where format = (++ "<fn=1>\61713 </fn>") . show
 
 -- Startup hooks
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnce "$XDG_CONFIG_HOME/polybar/launch.sh &"
+  -- spawnOnce "$XDG_CONFIG_HOME/polybar/launch.sh &"
   spawnOnce "nitrogen --restore &"
   -- spawnOnce "start-pulseaudio-x11 &"
   spawnOnce "picom &"
@@ -114,9 +128,9 @@ myKeys =
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
     -- Programs
-  -- , ("M-<XF86AudioRaiseVolume>", spawn "sound-notify up 5")
-  -- , ("M-<XF86AudioLowerVolume>", spawn "sound-notify down 5")
-  -- , ("M-<XF86AudioMute>", spawn "sound toggle")
+  , ("<XF86AudioRaiseVolume>", spawn "sound up 5")
+  , ("<XF86AudioLowerVolume>", spawn "sound down 5")
+  , ("<XF86AudioMute>", spawn "sound toggle")
   , ("M-d", spawn "dmenu_run")
   , ("M-0", spawn "turnoff")
   , ("M-<Print>", spawn "screenshot")

@@ -1,0 +1,10 @@
+#!/bin/sh
+# Display the number of updates together with an icon 
+
+updates=$(checkupdates | wc -l)
+
+if [ "$updates" -gt 0 ]; then 
+  echo "<fc=#c9af82><fn=1> </fn> $updates</fc>"
+else 
+  echo "<fc=#ffffff><fn=1> </fn></fc> $updates"
+fi
