@@ -1,11 +1,25 @@
 #!/bin/sh
 
+downloads="$HOME/Downloads"
+
 # Den skal altså lige tagge hvilket track det også er. Men altså ellers er det alt der er brug for
 if echo "$1" | grep -q playlist; then
-  youtube-dl --add-metadata -x -f m4a -o "$HOME/Music/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
+  youtube-dl -x -f m4a --add-metadata -o "$downloads/MUSIC-- %(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" "$1"
 elif echo "$1" | grep -q list; then
   echo "Does not work on list without you being in the playlist menu."
 else
-  echo "Make youtube-dl downloade single song here."
+  youtube-dl -x -f m4a --add-metadata -o "$downloads/MUSIC-- %(uploader)s - %(title)s.%(ext)s" "$1"
+  # echo "Make youtube-dl downloade single song here."
 fi
 # youtube-dl --add-metadata --embed-thumbnail -x -f m4a -o '~/Music/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $1
+
+file=$(ls "$downloads" | grep "MUSIC-- ")
+echo "Deleting mpd database..."
+rm ~/.config/mpd/database # This line is only here because beets struggles with reading the file for some reason
+echo "Importing tags from beet"
+beet imp "$downloads/$file"
+echo "Do you want to remove the folder in you downloads [Y/n]?"
+read -r x
+if [ ! "$x" = "n" ]; then 
+  rm -rf "$downloads/$file"
+fi

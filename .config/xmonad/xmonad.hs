@@ -7,7 +7,7 @@ import XMonad.Actions.CopyWindow (kill1)
 -- Data
 import Data.Monoid
 
--- Hooks
+-- Hooks import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.Place
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
@@ -133,10 +133,10 @@ myKeys =
   , ("M-b", spawn "brave")
   , ("M-S-c", spawn $ myTerminal ++ " calcurse")
   , ("M-S-x", spawn $ myEditor ++ " ~/.config/xmonad/xmonad.hs")
-  , ("M-S-p", spawn $ myEditor ++ " ~/.config/polybar/config")
   , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
   , ("M-S-s", spawn $ myTerminal ++ " ncmpcpp")
   , ("M-S-d", spawn $ myTerminal ++ " -n jn" ++ " jn")
+  , ("M-S-p", spawn $ myTerminal ++ " gtj")
   ]
     where 
       toggleGaps :: X ()
@@ -150,17 +150,20 @@ mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spaci
 mySpacing i = spacingRaw False (Border 0 i i i) True (Border 0 i i i) True
 
 wide        = renamed [Replace "wide"]
+              $ smartBorders
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
               $ limitWindows 12
               $ mySpacing 8
               $ Mirror 
               $ ResizableTall 1 (3/100) (1/2) []
 tall        = renamed [Replace "tall"]
+              $ smartBorders
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
               $ limitWindows 12
               $ mySpacing 8
               $ ResizableTall 1 (3/100) (1/2) []
 tabs        = renamed [Replace "tabs"]
+              $ smartBorders
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
               $ gaps [(U, 0), (D, 16), (R, 16), (L, 16)]
               $ tabbed shrinkText myTabConfig
@@ -175,6 +178,6 @@ myTabConfig = def { fontName              = "xft:URWGothic-Book:regular:pixelsiz
 
 myLayoutHook = mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
                   where
-                    myDefaultLayout = smartBorders wide
-                                      ||| smartBorders tall
-                                      ||| smartBorders tabs
+                    myDefaultLayout = tall
+                                      ||| wide
+                                      ||| tabs

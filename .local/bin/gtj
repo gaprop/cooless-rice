@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd "$HOME/Documents/porg/rust/a/i8080_emulator"

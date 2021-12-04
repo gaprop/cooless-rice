@@ -116,6 +116,8 @@ alias n=nvim
 
 alias nb=newsboat
 
+alias gtj=". gtj"
+
 
 bindkey -v
 export KEYTIMEOUT=1

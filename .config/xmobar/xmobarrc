@@ -9,7 +9,7 @@ Config { font = "xft:Iosevka:styke=Regular:pixelsize=15;2:antialias=true:hinting
        , persistent = True
        , commands = [
                     -- Time and date
-                      Run Date "<fn=1> </fn> %d %b %Y <fc=#c9af82>%H:%M <fn=1> </fn></fc>" "date" 50
+                      Run Date "<fn=1> </fn> %a %d %b %Y <fc=#c9af82>%H:%M <fn=1> </fn></fc>" "date" 50
                       -- Network up and down
                     , Run DynNetwork ["-t", " ↓<rx>kb | ↑<tx>kb"] 20
                       -- Cpu usage in percent
