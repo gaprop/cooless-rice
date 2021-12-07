@@ -17,7 +17,7 @@ cp -r ${configDir}/kitty/* ./.config/kitty/
 echo 'Copying polybar config..'
 cp -r ${configDir}/polybar/* ./.config/polybar/
 
-echo 'Copying polybar config..'
+echo 'Copying nvim config..'
 cp -r ${configDir}/nvim/* ./.config/nvim/
 
 echo 'Copying rofi config..'
@@ -56,6 +56,15 @@ cp -r ${configDir}/zathura/* ./.config/zathura/
 
 echo 'Copying newsboat'
 cp -r ${configDir}/newsboat/* ./.config/newsboat
+
+echo 'Copying mpv'
+cp -r ${configDir}/mpv/* ./.config/mpv
+
+echo 'Copying mpd'
+cp -r ${configDir}/mpd/mpd.conf ./.config/mpd
+
+echo 'Copying ncmpcpp'
+cp -r ${configDir}/ncmpcpp/* ./.config/ncmpcpp
 
 echo 'Copying dmenu'
 cp -r ${configDir}/dmenu/* ./.config/dmenu
