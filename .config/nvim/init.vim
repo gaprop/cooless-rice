@@ -3,7 +3,7 @@
 set termguicolors 
 set clipboard+=unnamedplus
 
-"Leader boiii
+"Leader key
 let mapleader = ' '
 
 "Put preview window to the bottom
@@ -65,6 +65,10 @@ Plug 'kongo2002/fsharp-vim'
 "Syntax highlight for latex and a auto compiler
 Plug 'lervag/vimtex'
 
+Plug 'lifepillar/vim-colortemplate'
+
+Plug 'gaprop/my-color'
+
 call plug#end()
 "-----------------------------------------
 
@@ -76,7 +80,7 @@ let g:airline_theme='minimalist'
 "Color-theme
 syntax on
 filetype plugin indent on
-colorscheme synthwave84
+colorscheme mycolor
  
 "Literally syntax highlighting only for .rafi
 au BufNewFile, BufRead /* .rasi setf css
