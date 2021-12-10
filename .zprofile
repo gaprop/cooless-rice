@@ -16,17 +16,19 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/cargo/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+
 # Programs that needs a little extra help understanding cleanup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo # For rusts cargo
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # For gtk
 export _Z_DATA="$XDG_DATA_HOME"/z # For z
+export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-      exec startx
+      exec startx "$XINITRC"
 fi
 
 # xorg changed the dpi, maybe this is temporary
-xrandr --dpi 96
+# xrandr --dpi 96
  
 # Increase monitor gamme
 #xgamma -quiet -gamma 1.3

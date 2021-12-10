@@ -1,0 +1,59 @@
+mode: night
+bg: #090611
+fg: #724372
+border: #724372 
+accent: #ffffff
+sec: #724372
+alert: #c9af82
+font: Fira Code
+
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+*background:                      #000000
+*foreground:                      #fefdd7
+*fading:                          8
+*fadeColor:                       black
+*cursorColor:                     #1ABB9B
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #16A085
+
+*color0: #2d1d34
+*color8: #2d1d34
+
+!#: red
+*color1: #311D31
+*color9: #311D31
+
+!#: green
+*color2: #ffffff
+*color10: #ffffff
+
+!#: yello: 
+*color3: #947DC2
+*color11: #947DC2
+
+!#: blue
+*color4: #c9af82
+*color12: #c9af82
+
+!#: magenta
+*color5: #574dae
+*color13: #574dae
+
+!#: cyan
+*color6: #8098b1
+*color14: #8098b1
+
+!#: white: 
+*color7: #e37933
+*color15: #e37933
+
+Xcursor.theme: xcursor-breeze
+Xcursor.size:                     0
+
