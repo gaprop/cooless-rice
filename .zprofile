@@ -28,7 +28,7 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 fi
 
 # xorg changed the dpi, maybe this is temporary
-# xrandr --dpi 96
+xrandr --dpi 96
  
 # Increase monitor gamme
 #xgamma -quiet -gamma 1.3
