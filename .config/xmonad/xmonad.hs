@@ -124,6 +124,7 @@ myKeys =
   , ("M-m", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
     -- Programs
+  , ("M1-<Space>", spawn "dunstctl close")
   -- , ("<XF86AudioRaiseVolume>", spawn "sound up 5")
   -- , ("<XF86AudioLowerVolume>", spawn "sound down 5")
   -- , ("<XF86AudioMute>", spawn "sound toggle")
