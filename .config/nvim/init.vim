@@ -49,7 +49,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'machakann/vim-highlightedyank'
 
 "Color-theme
-Plug 'artanikin/vim-synthwave84'
+" Plug 'artanikin/vim-synthwave84'
 
 " Plug 'tiagovla/tokyodark.nvim'
 
@@ -66,8 +66,6 @@ Plug 'kongo2002/fsharp-vim'
 Plug 'lervag/vimtex'
 
 Plug 'lifepillar/vim-colortemplate'
-
-Plug 'gaprop/my-color'
 
 call plug#end()
 "-----------------------------------------
