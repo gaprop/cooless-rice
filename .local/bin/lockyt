@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This program inserts a given url into the hosts file and maps it to the null adress 0.0.0.0. Effectively banning that url. Only after a given hour will it be available, and then after closed again.
+
+file=/etc/hosts
+url=$2
+time=$1
+
+curr=$(date +%H)
+
+if [ "$curr" -gt "$time" ]; then
+  sed -i "/0.0.0.0 "$url"$/ d" "$file"
+elif ! grep -q "0.0.0.0 "$url"$" "$file"; then
+  echo "0.0.0.0 $url" >> "$file"
+fi
