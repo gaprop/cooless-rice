@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Backbup my files. Whenever i make a backup i want to make a complete copy and not overwrite any previous backups. This will take up a lot of space, but i am too anxious about overwriting something i did not want to.
+
+# FIXME: There is probably a way to run this as root while still being able to use the users $HOME directory
+
+dir=$1
+nextbackup=$(date +%F)
+
+cd "$dir"
+mkdir -p "$nextbackup"/Documents
+
+cp -rv /home/anders/Books "$nextbackup"
+cp -rv /home/anders/Pictures "$nextbackup"
+cp -rv /home/anders/Vdeo "$nextbackup"
+cp -rv /home/anders/Documents/lang "$nextbackup"/Documents
+cp -rv /home/anders/Documents/mit "$nextbackup"/Documents
+cp -rv /home/anders/Documents/vigtige "$nextbackup"/Documents
+cp -rv /home/anders/Documents/website "$nextbackup"/Documents
+cp -rv /home/anders/Documents/workout "$nextbackup"/Documents
+cp -rv /home/anders/Documents/uni "$nextbackup"/Documents
+rsync -avP /home/anders/Music/ "$dir"/Music

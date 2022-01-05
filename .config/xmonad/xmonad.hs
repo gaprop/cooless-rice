@@ -11,6 +11,7 @@ import Data.Monoid
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.Place
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+import XMonad.Hooks.ManageHelpers
 
 -- Layouts
 import XMonad.Layout.ResizableTile
@@ -100,6 +101,7 @@ myStartupHook = do
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll 
  [
+    -- isFullscreen                        --> doFullFloat
     className =? "Nm-connection-editor" --> doFloat
  ,  resource  =? "jn"                   --> placeHook myPlacement <+> doFloat
  ]
@@ -142,9 +144,15 @@ myKeys =
     where 
       toggleGaps :: X ()
       toggleGaps = do
-        sendMessage ToggleGaps
+        sendMessage $ ToggleGap D
+        sendMessage $ ToggleGap R
+        sendMessage $ ToggleGap L
+        sendMessage $ modifyGap toggleTopGap U
         toggleScreenSpacingEnabled
         toggleWindowSpacingEnabled -- Removes spacing between windows (They overlap a tiny bit though)
+
+      toggleTopGap :: Int -> Int
+      toggleTopGap x = if x == 48 then 26 else 48
 
 -- Layouts
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
@@ -166,7 +174,7 @@ tall        = renamed [Replace "tall"]
 tabs        = renamed [Replace "tabs"]
               $ smartBorders
               $ gaps [(U, 48), (D, 2), (R, 8), (L, 8)]
-              $ gaps [(U, 0), (D, 16), (R, 16), (L, 16)]
+              -- $ gaps [(U, 0), (D, 16), (R, 16), (L, 16)]
               $ tabbed shrinkText myTabConfig
 myTabConfig = def { fontName              = "xft:URWGothic-Book:regular:pixelsize=11"
                     , activeColor         = myFocusColor
