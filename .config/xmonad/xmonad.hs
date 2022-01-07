@@ -104,6 +104,7 @@ myManageHook = composeAll
     -- isFullscreen                        --> doFullFloat
     className =? "Nm-connection-editor" --> doFloat
  ,  resource  =? "jn"                   --> placeHook myPlacement <+> doFloat
+ ,  resource  =? "calculator"           --> placeHook myPlacement <+> doFloat
  ]
 
 myPlacement = smart (0.5, 0.7)
@@ -139,7 +140,8 @@ myKeys =
   , ("M-S-n", spawn $ myEditor ++ " ~/.config/nvim/init.vim")
   , ("M-S-s", spawn $ myTerminal ++ " ncmpcpp")
   , ("M-S-d", spawn $ myTerminal ++ " -n jn" ++ " jn")
-  , ("M-S-p", spawn $ myTerminal ++ " gtj")
+  -- , ("M-S-p", spawn $ myTerminal ++ " gtj")
+  , ("M-S-p", spawn $ myTerminal ++ " -f \"Fira Code:size=28:antialias=true:autohint=true\" -n calculator" ++ " ghci")
   ]
     where 
       toggleGaps :: X ()
