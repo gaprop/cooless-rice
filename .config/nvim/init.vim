@@ -172,5 +172,32 @@ let g:Tex_IgnoreLevel = 8
 "-----------------------------------------
 
 "------------auto command options---------
+" Find find and replace for <++>
+autocmd FileType tex inoremap <C-n> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex vnoremap <C-n> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex map <C-n> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex inoremap ;gui <++>
 
+" Latex
+autocmd FileType tex inoremap ;chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;sec \section{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ;ol \begin{enumerate}<Enter><Enter><Esc>A\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap ;ul \begin{itemize}<Enter><Enter><Esc>A\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap ;li <Enter>\item<Space>
+autocmd FileType tex inoremap ;beg \begin{D}<Enter><++><Enter><Esc>A\end{D}<Enter><Enter><++><Esc>4kV2j
+autocmd FileType tex inoremap ;fig \begin{figure}<Enter><Enter>\caption{<++>}<Enter>\label{<++>}<Enter><Esc>A\end{figure}<Enter><Enter><++><Esc>5kA<Tab>
+autocmd FileType tex inoremap ;tab \begin{table}[]<Enter>\begin{tabular}<Enter>\hline<Enter><++><Space>\\<Space>\hline<Enter><Backspace>\end{tabular}<Enter><Esc>A\end{table}<Enter><Enter><++><Esc>6kA{}<Esc>i
+autocmd FileType tex inoremap ;em \emph{}<++><Esc>T{i
+autocmd FileType tex inoremap ;bf \textbf{}<++><Esc>T{i
+autocmd FileType tex inoremap ;it \textit{}<++><Esc>T{i
+autocmd FileType tex inoremap ;tt \texttt{}<Space><++><Esc>T{i
+autocmd FileType tex inoremap ;ref \ref{}<Space><++><Esc>T{i
+
+" Latex Math
+autocmd FileType tex inoremap ;m $$<Space><++><Esc>2T$i
+autocmd FileType tex inoremap ;M \begin{align*}<Enter><Enter><Esc>A\end{align*}<Enter><++><Esc>2kA<Tab>
+autocmd FileType tex inoremap ;fr \frac{}{<++>}<++><Esc>2T{i
+autocmd FileType tex inoremap ;sum \sum_{}^{<++>} <++><Esc>2T{i
 "-----------------------------------------

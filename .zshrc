@@ -118,6 +118,8 @@ alias nb=newsboat
 
 alias gtj=". gtj"
 
+alias s="sudo systemctl"
+
 
 bindkey -v
 export KEYTIMEOUT=1
