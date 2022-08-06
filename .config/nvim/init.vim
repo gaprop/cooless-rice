@@ -173,9 +173,9 @@ let g:Tex_IgnoreLevel = 8
 
 "------------auto command options---------
 " Find find and replace for <++>
-autocmd FileType tex inoremap <C-j> <Esc>/<++><Enter>"_c4l
-autocmd FileType tex vnoremap <C-j> <Esc>/<++><Enter>"_c4l
-autocmd FileType tex map <C-j> <Esc>/<++><Enter>"_c4l
+inoremap <C-j> <Esc>/<++><Enter>"_c4l
+vnoremap <C-j> <Esc>/<++><Enter>"_c4l
+map <C-j> <Esc>/<++><Enter>"_c4l
 autocmd FileType tex inoremap ;gui <++>
 
 " Latex
@@ -196,8 +196,13 @@ autocmd FileType tex inoremap ;tt \texttt{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap ;ref \ref{}<Space><++><Esc>T{i
 
 " Latex Math
-autocmd FileType tex inoremap ;m $$<++><Esc>2T$i
+autocmd FileType tex inoremap ;m $$<Space><++><Esc>2T$i
 autocmd FileType tex inoremap ;M \begin{align*}<Enter><Enter><Esc>A\end{align*}<Enter><++><Esc>2kA<Tab>
 autocmd FileType tex inoremap ;fr \frac{}{<++>}<++><Esc>2T{i
 autocmd FileType tex inoremap ;sum \sum_{}^{<++>} <++><Esc>2T{i
+
+" Temporary 
+autocmd FileType tex inoremap ;inf \infrule{}{<++>}<++><Esc>2T{i
+autocmd FileType tex inoremap ;inp \inpend{}{<++>}<++><Esc>2T{i
+autocmd FileType tex inoremap ;oup \outpend{}{<++>}<++><Esc>2T{i
 "-----------------------------------------
