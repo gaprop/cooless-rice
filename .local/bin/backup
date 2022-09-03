@@ -19,4 +19,6 @@ cp -rv /home/anders/Documents/vigtige "$nextbackup"/Documents
 cp -rv /home/anders/Documents/website "$nextbackup"/Documents
 cp -rv /home/anders/Documents/workout "$nextbackup"/Documents
 cp -rv /home/anders/Documents/uni "$nextbackup"/Documents
+cp -rv /home/anders/Documents/mad_oversigt.csv "$nextbackup"/Documents
+cp -rv /home/anders/Documents/random "$nextbackup"/Documents
 rsync -avP /home/anders/Music/ "$dir"/Music
